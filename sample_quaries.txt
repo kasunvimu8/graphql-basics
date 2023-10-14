@@ -1,0 +1,51 @@
+DELETE FUNCTOIN
+
+mutation deleteGame ($deleteGameId: ID!) {
+  deleteGame(id: $deleteGameId) {
+      id
+      platform
+  }
+}
+
+{
+  "deleteGameId": "2"
+}
+
+----------------------------------------------------------------
+
+ADD FUNCTION
+
+mutation addGame ($game: gameInput!) {
+  addGame(game: $game) {
+      title,
+      id,
+      platform,
+      reviews{
+        id
+      }
+  }
+}
+
+{
+  "game" : {
+    "title": "SAAAGDH",
+    "platform": ["PS5", "Xbox", "PC"]
+  }
+}
+----------------------------------------------------------------
+
+EDIT FUNCTION
+
+mutation edit($id : ID!, $editData : editGameInput!) {
+  updateGame(id: $id, edits : $editData) {
+    id
+    title
+  }
+}
+
+{
+  "editData" : {
+    "title" : "Hi Its Me!!!!!!!!!!!!!!!!!!!",
+  },
+  "id": "2",
+}
